@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 
 const connectDB = async () => {
   mongoose.set("strictQuery", false);
-  const conn = await mongoose.connect(
-    "mongodb+srv://readyp:satusampailima@clusterfortesting.t9uslzy.mongodb.net/?retryWrites=true&w=majority"
-  );
+  const conn = await mongoose.connect(process.env.MONGO_URI);
   console.log(`MongoDB connected: ${conn.connection.host.underline}`.blue.bold);
 };
 
